@@ -13,7 +13,7 @@ Docker runs on a VirtualBox VM which by default only shares the user directory f
 `git clone https://github.com/betaflight/betaflight.git`
 
 ### Run this image with Docker
-Start Docker and change to the NodeMCU firmware directory (in the Docker console). Then run:
+Start Docker and change into the Betaflight source directory (in the Docker console). Then run:
 
 ``docker run --rm -ti -v `pwd`:/opt/betaflight mikeller/betaflight-build``
 
