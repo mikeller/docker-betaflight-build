@@ -1,5 +1,5 @@
 # Docker Betaflight build
-[![Docker Pulls](https://img.shields.io/docker/pulls/mikeller/betaflight-build.svg)](https://hub.docker.com/r/betaflight-build/) [![Docker Stars](https://img.shields.io/docker/stars/betaflight-build.svg)](https://hub.docker.com/r/betaflight-build/) [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/betaflight-build/blob/master/LICENSE)
+[![Docker Pulls](https://img.shields.io/docker/pulls/mikeller/betaflight-build.svg)](https://hub.docker.com/r/mikeller/betaflight-build/) [![Docker Stars](https://img.shields.io/docker/stars/mikeller/betaflight-build.svg)](https://hub.docker.com/r/betaflight-build/) [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/mikeller/betaflight-build/blob/master/LICENSE)
 
 Clone and edit [Betaflight](https://github.com/betaflight/betaflight) locally on your platform. This image will take it from there and turn your code into a binary which you then can flash to your flight controller with the [Betaflight Configurator](https://chrome.google.com/webstore/detail/betaflight-configurator/kdaghagfopacdngbohiknlhcocjccjao).
 
