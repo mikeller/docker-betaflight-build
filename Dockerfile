@@ -25,5 +25,5 @@ CMD if [ -z ${PLATFORM} ]; then \
         make all; \
     else \
         make clean TARGET=${PLATFORM} && \
-        make ${PLATFORM}; \
+        make TARGET=${PLATFORM}; \
     fi
