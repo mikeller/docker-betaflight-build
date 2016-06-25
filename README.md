@@ -33,7 +33,9 @@ If the Windows path contains spaces it would have to be wrapped in quotes as usu
 The firmware file (`.bin` or `.hex`) is created in the `obj` subfolder of your betaflight source directory.
 
 #### Options
-You can pass the following optional parameters to the Docker build like so `docker run -e "<parameter>=value" -e ...`. 
+You can pass the following optional parameters to the Docker build like so:
+
+`docker run -e "<parameter>=value" --rm -ti -v `pwd`:/opt/betaflight mikeller/betaflight-build`. 
 
 - `PLATFORM` The platform to build for. Use `ALL` to build for all platforms. (default: `NAZE`)
 
