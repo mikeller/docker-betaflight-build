@@ -8,7 +8,7 @@ MAINTAINER mikeller
 # - cd <your betaflight source dir>
 # - docker run --rm -ti -v `pwd`:/opt/betaflight betaflight-build
 
-RUN apt-get update -y && apt-get install -y git make gcc-arm-none-eabi
+RUN apt-get update -y && apt-get install -y git make gcc-arm-none-eabi ccache
 RUN mkdir /opt/betaflight
 WORKDIR /opt/betaflight
 
