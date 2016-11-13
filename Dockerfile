@@ -8,7 +8,13 @@ MAINTAINER mikeller
 # - cd <your betaflight source dir>
 # - docker run --rm -ti -v `pwd`:/opt/betaflight betaflight-build
 
-RUN apt-get update -y && apt-get install -y git make gcc-arm-none-eabi ccache
+RUN DEBIAN_FRONTEND=noninteractive apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install software-properties-common
+RUN DEBIAN_FRONTEND=noninteractive add-apt-repository ppa:team-gcc-arm-embedded/ppa
+RUN DEBIAN_FRONTEND=noninteractive apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install git make gcc-arm-none-eabi ccache python
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade
+
 RUN mkdir /opt/betaflight
 WORKDIR /opt/betaflight
 
@@ -17,13 +23,14 @@ WORKDIR /opt/betaflight
 #   Specify 'ALL' to build for all supported platforms. (default: NAZE)
 #
 # What the commands do:
-CMD if [ -z ${PLATFORM} ]; then \
+CMD GCC_REQUIRED_VERSION=$(arm-none-eabi-gcc -dumpversion) && \
+    if [ -z ${PLATFORM} ]; then \
       PLATFORM="NAZE"; \
     fi && \
     if [ ${PLATFORM} = ALL ]; then \
-        make clean_all && \
-        make all; \
+        make GCC_REQUIRED_VERSION=${GCC_REQUIRED_VERSION} clean_all && \
+        make GCC_REQUIRED_VERSION=${GCC_REQUIRED_VERSION} all; \
     else \
-        make clean TARGET=${PLATFORM} && \
-        make TARGET=${PLATFORM}; \
+        make GCC_REQUIRED_VERSION=${GCC_REQUIRED_VERSION} clean TARGET=${PLATFORM} && \
+        make GCC_REQUIRED_VERSION=${GCC_REQUIRED_VERSION} TARGET=${PLATFORM}; \
     fi
